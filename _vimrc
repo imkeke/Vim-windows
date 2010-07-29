@@ -1,7 +1,12 @@
-""""""""""""""""""""""基本设置""""""""""""""""""""""
-"colo desert			"颜色
+" File: _vimrc
+" Author: keke
+" Description: keke's vimrc
+" Last Modified: 七月 27, 2010
+
+" 基本设定
 "colo zenburn
-colo yytextmate		"颜色
+"colo yytextmate
+"colo desert
 set history=400			"历史记录条数
 set t_vb=				"关闭警告音
 set nocompatible		"去掉兼容模式 
@@ -18,38 +23,41 @@ set nobackup			"无备份
 set hlsearch			"高亮搜索
 set showmatch			"设置匹配模式
 set number 				"显示行号
+set cursorline			"设置当前行高亮
+set clipboard+=unnamed  "和系统剪贴板共享
+:filetype plugin on
 
-""""""""""""""""""""""默认目录""""""""""""""""""""""
-set autochdir
-" let g:Source="D:/source/"
-" cd C:\
+" 分割窗口切换
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
-""""""""""""""""""""""全屏插件""""""""""""""""""""""
+" 全屏插件
 map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
  
-""""""""""""""""""""""Ctrl+s保存""""""""""""""""""""
+" Ctrl+s保存
 noremap <C-S> :update<CR>
 vnoremap <C-S> <C-C>:update<CR>
 inoremap <C-S> <C-O>:update<CR>
 
-""""""""""""""""""""""Win下设置字体"""""""""""""""""
+" Win下设置字体
        au BufWinLeave *.ztx mkview
        au BufWinEnter *.ztx silent loadview
 au BufNewFile,BufRead *.tx1 setf tx1
 if has("win32")
 	"set guifont=Monaco:h9:cANSI
-	"set guifont=Inconsolata:h13:cANSI
-	"set guifont=YaHei\ Mono:h11
-    set guifont=Courier_New:h12:cANSI
-    set guifontwide=YaHei\ Mono:h10
+	"set guifont=Bitstream Vera Sans Mono:h9:cANSI
+    "set guifont=Courier_New:h10:cANSI
+	"set guifont=Inconsolata:h11:cANSI
+    set guifont=YaHei\ Mono:h9
+    set guifontwide=YaHei\ Mono:h9
 endif
 
-""""""""""""""""""""""设置窗口位置和大小""""""""""""
-" winpos 250 220
-" set lines=35 columns=150
+" 设置窗口位置和大小
 au GUIEnter * simalt ~x " 启动时最大化
 
-""""""""""""""""""""""解决中文乱码""""""""""""""""""
+" 解决中文乱码
 if has("multi_byte")
     set encoding=utf-8
     set termencoding=utf-8
@@ -69,61 +77,34 @@ else
     echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte"
 endif
 
-""""""""""""""""""""括号自动补全"""""""""""""""""
-	":inoremap ( ()<ESC>i
-	":inoremap ) <c-r>=ClosePair(')')<CR>
-	":inoremap { {}<ESC>i
-	":inoremap } <c-r>=ClosePair('}')<CR>
-	":inoremap [ []<ESC>i
-	":inoremap ] <c-r>=ClosePair(']')<CR>
-	":inoremap < <><ESC>i
-	":inoremap > <c-r>=ClosePair('>')<CR>
-	"function ClosePair(char)
-	"if getline('.')[col('.') - 1] == a:char
-	"	return "\<Right>"
-	"else
-	"	return a:char
-	"endif
-	"endf
+" 快速打开常用文件
+let mapleader = ","
+nmap <leader>v :tabedit $MYVIMRC<CR>
 
-""""""""""""""""""""快速打开常用文件"""""""""""""""""
-:map tnrc :tabedit D:\Program Files\Vim\_vimrc<CR>
-:map  <F5> :tabprevious<CR>
-:map  <F6> :tabnext<CR>
-:imap  <F5> <ESC>:tabprevious<CR>
-:imap  <F6> <ESC>:tabnext<CR>
-:map tc :tabnew <cr>
-:map tw :tabclose<cr>
+" 标签快捷键
+nmap <C-t>   :tabnew<CR>
+nmap <C-Tab> :tabnext<CR> 
 
-""""""""""""""""""""设置当前行高亮"""""""""""""""""
-"highlight CurrentLine guibg=#e8e8ff guifg=#000000  "(or whatever colors you want)
-"au! Cursorhold * exe 'match CurrentLine /\%' . line('.') . 'l.*/'
-"set ut=1
-set cursorline
-
-""""""""""""""""""""和系统剪贴板共享"""""""""""""""""
-set clipboard+=unnamed
-
-""""""""""""""""""""打开关闭NERDtree""""""""""""""""
+" 打开关闭NERDtree
 map <F3> :NERDTreeToggle<CR>
 imap <F3> <ESC> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$','\~$']
 
-""""""""""""""""""""建立日记的目录和快捷键设定""""""""""""""
+" 建立日记的目录和快捷键设定
 let g:calendar_diary="D:/keke/diary"
 map <F2> :CalendarH<CR>
 
-""""""""""""""""""""代码折叠""""""""""""""
+" 代码折叠
 map ,f :set foldmethod=indent<CR>zM<CR>
 map ,F :set foldmethod=manual<CR>zR<CR>
 
-""""""""""""""""""""缩进""""""""""""""
+" 缩进
 nmap <tab> v>
 nmap <s-tab> v<
 vmap <tab> >gv
 vmap <s-tab> <gv 
 
-""""""""""""""""""""让Command Mode也有Bash的Key Binding""""""""""""""
+" 让Command Mode也有Bash的Key Binding
 cmap <c-a> <home>
 cmap <c-e> <end>
 cnoremap <c-b> <left>
@@ -132,8 +113,30 @@ cnoremap <c-f> <right>
 cnoremap <c-n> <down>
 cnoremap <c-p> <up>
 
-:filetype plugin on
-"let g:NeoComplCache_EnableAtStartup = 1
+" neocomplcache
+let g:neocomplcache_enable_at_startup = 1 
 
+" vimwiki
 let g:vimwiki_use_mouse = 1
 let g:vimwiki_list = [{"path": "D:/My Dropbox/vimwiki/", "path_html": "D:/My Dropbox/vimwiki/html/", "html_header": "D:/My Dropbox/vimwiki/template/header.tpl", "html_footer": "D:/My Dropbox/vimwiki/template/footer.tpl", "auto_export": 1}]
+
+" jQuery 语法高亮
+au BufRead,BufNewFile *.js set syntax=jquery
+
+" CSS3 语法支持
+au BufRead,BufNewFile *.css set ft=css syntax=css3
+
+" 命令行于状态行
+set ch=1
+set stl=\ [File]\ %F%m%r%h%y[%{&fileformat},%{&fileencoding}]\ %w\ \ [PWD]\ %r%{GetPWD()}%h\ %=\ [Line]%l/%L\ %=\[%P]
+set ls=2 " 始终显示状态行
+set wildmenu "命令行补全以增强模式运行
+
+" 获取当前目录
+func! GetPWD()
+    return substitute(getcwd(), "", "", "g")
+endf
+" 自动改变当前目录
+if has('netbeans_intg')
+    set autochdir
+endif

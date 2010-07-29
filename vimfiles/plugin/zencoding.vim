@@ -1,7 +1,7 @@
 "=============================================================================
 " File: zencoding.vim
 " Author: Yasuhiro Matsumoto <mattn.jp@gmail.com>
-" Last Change: 06-Jul-2010.
+" Last Change: 11-Jun-2010.
 " Version: 0.43
 " WebPage: http://github.com/mattn/zencoding-vim
 " Description: vim plugins for HTML and CSS hi-speed coding.
@@ -741,7 +741,7 @@ let s:zen_settings = {
 \            'menu:t': {'type': 'toolbar'},
 \            'video': {'src': ''},
 \            'audio': {'src': ''},
-\            'html:xml': [{'xmlns': 'http://www.w3.org/1999/xhtml'}, {'xml:lang': '${lang}'}]
+\            'html:xml': [{'xmlns': 'http://www.w3.org/1999/xhtml'}, {'xml:lang': 'ru'}]
 \        },
 \        'aliases': {
 \            'link:*': 'link',
@@ -1433,16 +1433,13 @@ function! s:zen_expandAbbr(mode) range
           endif
         endfor
         if len(leader)
-          let items = s:zen_parseIntoTree(leader, type).child
-          let items[0].value = "{\n".str."}"
+          let items = s:zen_parseIntoTree(leader . "{\n" . str . "}", type).child
         else
-          let items = s:zen_parseIntoTree(leader, type).child
-          let items[0].value = "{".str."}"
+          let items = s:zen_parseIntoTree(leader . "{" . str . "}", type).child
         endif
       else
         let str .= getline(a:firstline)
-        let items = s:zen_parseIntoTree(leader, type).child
-        let items[0].value = "{".str."}"
+        let items = s:zen_parseIntoTree(leader . "{" . str . "}", type).child
       endif
       for item in items
         let expand .= s:zen_toString(item, type, 0, filters)
