@@ -5,8 +5,8 @@
 
 " 基本设定
 "colo zenburn
-"colo yytextmate
 "colo desert
+"colo yytextmate
 set history=400			"历史记录条数
 set t_vb=				"关闭警告音
 set nocompatible		"去掉兼容模式 
@@ -80,6 +80,7 @@ endif
 " 快速打开常用文件
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>s :source $MYVIMRC<CR>
 
 " 标签快捷键
 nmap <C-t>   :tabnew<CR>
