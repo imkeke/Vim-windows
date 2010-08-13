@@ -87,7 +87,7 @@ nmap <C-t>   :tabnew<CR>
 nmap <C-Tab> :tabnext<CR> 
 
 " 打开关闭NERDtree
-map <F3> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 imap <F3> <ESC> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$','\~$']
 
@@ -141,3 +141,6 @@ endf
 if has('netbeans_intg')
     set autochdir
 endif
+
+" 格式化CSS
+" map <leader>.fcss :%s/;\([a-z\*\_]\)/;\r\1/g<cr>:%s/\(\w\){\([^\r]\)/\1\ {\r\2/g<cr>:%s/;}/;\r}/<cr>
