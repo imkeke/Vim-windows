@@ -48,9 +48,9 @@ au BufNewFile,BufRead *.tx1 setf tx1
 if has("win32")
 	"set guifont=Monaco:h9:cANSI
 	"set guifont=Bitstream Vera Sans Mono:h9:cANSI
-    "set guifont=Courier_New:h10:cANSI
-	"set guifont=Inconsolata:h11:cANSI
-    set guifont=YaHei\ Mono:h9
+    "set guifont=YaHei\ Mono:h9
+	"set guifont=Inconsolata:h12:cANSI
+    set guifont=Courier_New:h10:cANSI
     set guifontwide=YaHei\ Mono:h9
 endif
 
