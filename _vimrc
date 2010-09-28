@@ -9,7 +9,7 @@
 "colo yytextmate
 set history=400			"历史记录条数
 set t_vb=				"关闭警告音
-set nocompatible		"去掉兼容模式 
+set nocompatible		"去掉兼容模式
 set magic				"用于正则表达式
 set ru					"标尺信息
 set ai					"autoindent自动缩进
@@ -35,7 +35,7 @@ map <C-l> <C-W>l
 
 " 全屏插件
 map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
- 
+
 " Ctrl+s保存
 noremap <C-S> :update<CR>
 vnoremap <C-S> <C-C>:update<CR>
@@ -72,7 +72,7 @@ if has("multi_byte")
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
         language messages zh_CN.utf-8
-    endif 
+    endif
 else
     echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte"
 endif
@@ -84,7 +84,7 @@ nmap <leader>s :source $MYVIMRC<CR>
 
 " 标签快捷键
 nmap <C-t>   :tabnew<CR>
-nmap <C-Tab> :tabnext<CR> 
+nmap <C-Tab> :tabnext<CR>
 
 " 打开关闭NERDtree
 map <leader>n :NERDTreeToggle<CR>
@@ -96,14 +96,13 @@ let g:calendar_diary="D:/keke/diary"
 map <F2> :CalendarH<CR>
 
 " 代码折叠
-map ,f :set foldmethod=indent<CR>zM<CR>
-map ,F :set foldmethod=manual<CR>zR<CR>
+set foldmethod=marker
 
 " 缩进
 nmap <tab> v>
 nmap <s-tab> v<
 vmap <tab> >gv
-vmap <s-tab> <gv 
+vmap <s-tab> <gv
 
 " 让Command Mode也有Bash的Key Binding
 cmap <c-a> <home>
@@ -115,7 +114,7 @@ cnoremap <c-n> <down>
 cnoremap <c-p> <up>
 
 " neocomplcache
-let g:neocomplcache_enable_at_startup = 1 
+let g:neocomplcache_enable_at_startup = 1
 
 " vimwiki
 let g:vimwiki_use_mouse = 1
@@ -144,3 +143,9 @@ endif
 
 " 格式化CSS
 " map <leader>.fcss :%s/;\([a-z\*\_]\)/;\r\1/g<cr>:%s/\(\w\){\([^\r]\)/\1\ {\r\2/g<cr>:%s/;}/;\r}/<cr>
+
+" 去除结尾空格
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+" 折叠HTML标签
+nnoremap <leader>ft Vatzf
+nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
