@@ -146,6 +146,24 @@ endif
 
 " 去除结尾空格
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+" 去掉结尾^M
+nnoremap <leader>E :%s/$//g<cr>:let @/=''<CR>
 " 折叠HTML标签
 nnoremap <leader>ft Vatzf
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
+" Wrap visual selection in an HTML tag.
+vmap <Leader>w <Esc>:call VisualHTMLTagWrap()<CR>
+function! VisualHTMLTagWrap()
+  let tag = input("Tag to wrap block: ")
+  if len(tag) > 0
+    normal `>
+    if &selection == 'exclusive'
+      exe "normal i</".tag.">"
+    else
+      exe "normal a</".tag.">"
+    endif
+    normal `<
+    exe "normal i<".tag.">"
+    normal `<
+  endif
+endfunction
