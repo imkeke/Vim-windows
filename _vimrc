@@ -88,6 +88,7 @@ nmap <C-Tab> :tabnext<CR>
 
 " ´ò¿ª¹Ø±ÕNERDtree
 map <leader>n :NERDTreeToggle<CR>
+map <leader>f :FufFile<CR>
 imap <F3> <ESC> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$','\~$']
 
