@@ -84,7 +84,10 @@ nmap <leader>s :source $MYVIMRC<CR>
 
 " 标签快捷键
 nmap <C-t>   :tabnew<CR>
-nmap <C-Tab> :tabnext<CR>
+nmap <C-p>   :tabprevious<CR>
+nmap <C-n>   :tabnext<CR>
+nmap <C-k>   :tabclose<CR>
+nmap <C-Tab> :tabnext<CR> 
 
 " 打开关闭NERDtree
 map <leader>n :NERDTreeToggle<CR>
