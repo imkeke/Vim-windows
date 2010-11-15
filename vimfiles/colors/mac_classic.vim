@@ -13,12 +13,10 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = "Mac Classic"
+let g:colors_name = "mac_classic"
 
 
 " Colors: {{{1
-" hint: to see what the colors look like, run:
-"   :source script/highlight_colors.vim
 " TODO figure out how to not highlight TODO
 "
 " #000000
@@ -56,16 +54,16 @@ hi Pmenu guibg=#EFEFEF ctermbg=7
 hi PmenuSel  guibg=#C6DEFF ctermbg=189
 hi Directory  guifg=#D51015 ctermfg=160 gui=bold
 hi Folded  guifg=#0066FF ctermfg=27 guibg=#FFFFFF ctermbg=15
-
-" StatusLine: {{{1
+" StatusLine: {{{2
 hi StatusLine  guifg=#000000 ctermfg=0 guibg=#C6DEFF ctermbg=189 gui=italic
 hi StatusLineNC  guifg=#000000 ctermfg=0 guibg=#EFEFEF ctermbg=7 gui=NONE
 
-" Search: {{{1
+" Search: {{{2
 " [IncSearch is stronger than Search]
 hi IncSearch  guifg=NONE guibg=#FFCE77 ctermbg=222 gui=NONE
 hi Search  guibg=#FFE6BB ctermbg=223
 
+" Syntax: {{{1
 hi Normal  guifg=#000000 ctermfg=0 guibg=#FFFFFF ctermbg=15
 hi Boolean  guifg=#6E79F1 ctermfg=69 gui=bold
 hi Character  guifg=#D51015 ctermfg=160 gui=bold
@@ -95,6 +93,12 @@ hi Underlined  gui=underline
 hi NonText  guifg=#DFDFDF ctermfg=253 guibg=#FFFFFF ctermbg=15
 hi SpecialKey  guifg=#DFDFDF ctermfg=253 guibg=#FFFFFF ctermbg=15
 
+" Diff styles {{{1
+hi diffAdded guifg=#007B22 guibg=#FFFFFF ctermfg=28 ctermbg=15
+hi diffRemoved guifg=#D51015 guibg=#FFFFFF ctermfg=160 ctermbg=15
+hi diffFile guifg=#6E79F1 guibg=#FFFFFF ctermfg=69 ctermbg=15
+hi diffNewFile guifg=#6E79F1 guibg=#FFFFFF ctermfg=69 ctermbg=15
+hi diffLine guifg=#000000 guibg=#FFFFFF ctermfg=0 ctermbg=15
 " Ruby styles {{{1
 hi rubyClass  guifg=#1E39F6 ctermfg=27 gui=bold
 hi rubyFunction  guifg=#0000A2 ctermfg=19 gui=bold

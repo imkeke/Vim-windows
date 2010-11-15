@@ -4,7 +4,10 @@
 " Last Modified: 七月 27, 2010
 
 " 基本设定
-set history=400			"历史记录条数
+set history=400
+sy on
+set go=
+set number
 set t_vb=				"关闭警告音
 set nocompatible		"去掉兼容模式
 set magic				"用于正则表达式
@@ -14,12 +17,9 @@ set sw=4				"设置tab宽度
 set ts=4
 set dy=lastline			"显示最多行，不用@@
 set backspace=indent,eol,start	"缩进相关
-sy on					"设置高亮
-set go= 				"无菜单、工具栏
 set nobackup			"无备份
 set hlsearch			"高亮搜索
 set showmatch			"设置匹配模式
-set number 				"显示行号
 set cursorline			"设置当前行高亮
 set clipboard+=unnamed  "和系统剪贴板共享
 :filetype plugin on
@@ -83,8 +83,7 @@ nmap <leader>s :source $MYVIMRC<CR>
 nmap <C-t>   :tabnew<CR>
 nmap <C-p>   :tabprevious<CR>
 nmap <C-n>   :tabnext<CR>
-nmap <C-k>   :tabclose<CR>
-nmap <C-Tab> :tabnext<CR> 
+nmap <C-Tab> :tabnext<CR>
 
 " 打开关闭NERDtree
 map <leader>n :NERDTreeToggle<CR>
