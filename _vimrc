@@ -1,44 +1,44 @@
 " File: _vimrc
 " Author: keke
 " Description: keke's vimrc
-" Last Modified: ÆßÔÂ 27, 2010
+" Last Modified: ä¸ƒæœˆ 27, 2010
 
-" »ù±¾Éè¶¨
+" åŸºæœ¬è®¾å®š
 set history=400
 sy on
 set go=
 set number
-set t_vb=				"¹Ø±Õ¾¯¸æÒô
-set nocompatible		"È¥µô¼æÈİÄ£Ê½
-set magic				"ÓÃÓÚÕıÔò±í´ïÊ½
-set ru					"±ê³ßĞÅÏ¢
-set ai					"autoindent×Ô¶¯Ëõ½ø
-set sw=4				"ÉèÖÃtab¿í¶È
+set t_vb=				"å…³é—­è­¦å‘ŠéŸ³
+set nocompatible		"å»æ‰å…¼å®¹æ¨¡å¼
+set magic				"ç”¨äºæ­£åˆ™è¡¨è¾¾å¼
+set ru					"æ ‡å°ºä¿¡æ¯
+set ai					"autoindentè‡ªåŠ¨ç¼©è¿›
+set sw=4				"è®¾ç½®tabå®½åº¦
 set ts=4
-set dy=lastline			"ÏÔÊ¾×î¶àĞĞ£¬²»ÓÃ@@
-set backspace=indent,eol,start	"Ëõ½øÏà¹Ø
-set nobackup			"ÎŞ±¸·İ
-set hlsearch			"¸ßÁÁËÑË÷
-set showmatch			"ÉèÖÃÆ¥ÅäÄ£Ê½
-set cursorline			"ÉèÖÃµ±Ç°ĞĞ¸ßÁÁ
-set clipboard+=unnamed  "ºÍÏµÍ³¼ôÌù°å¹²Ïí
+set dy=lastline			"æ˜¾ç¤ºæœ€å¤šè¡Œï¼Œä¸ç”¨@@
+set backspace=indent,eol,start	"ç¼©è¿›ç›¸å…³
+set nobackup			"æ— å¤‡ä»½
+set hlsearch			"é«˜äº®æœç´¢
+set showmatch			"è®¾ç½®åŒ¹é…æ¨¡å¼
+set cursorline			"è®¾ç½®å½“å‰è¡Œé«˜äº®
+set clipboard+=unnamed  "å’Œç³»ç»Ÿå‰ªè´´æ¿å…±äº«
 :filetype plugin on
 
-" ·Ö¸î´°¿ÚÇĞ»»
+" åˆ†å‰²çª—å£åˆ‡æ¢
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" È«ÆÁ²å¼ş
+" å…¨å±æ’ä»¶
 map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 
-" Ctrl+s±£´æ
+" Ctrl+sä¿å­˜
 noremap <C-S> :update<CR>
 vnoremap <C-S> <C-C>:update<CR>
 inoremap <C-S> <C-O>:update<CR>
 
-" WinÏÂÉèÖÃ×ÖÌå
+" Winä¸‹è®¾ç½®å­—ä½“
        au BufWinLeave *.ztx mkview
        au BufWinEnter *.ztx silent loadview
 au BufNewFile,BufRead *.tx1 setf tx1
@@ -51,10 +51,10 @@ if has("win32")
     set guifontwide=YaHei\ Mono:h9
 endif
 
-" ÉèÖÃ´°¿ÚÎ»ÖÃºÍ´óĞ¡
-au GUIEnter * simalt ~x " Æô¶¯Ê±×î´ó»¯
+" è®¾ç½®çª—å£ä½ç½®å’Œå¤§å°
+au GUIEnter * simalt ~x " å¯åŠ¨æ—¶æœ€å¤§åŒ–
 
-" ½â¾öÖĞÎÄÂÒÂë
+" è§£å†³ä¸­æ–‡ä¹±ç 
 if has("multi_byte")
     set encoding=utf-8
     set termencoding=utf-8
@@ -74,37 +74,37 @@ else
     echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte"
 endif
 
-" ¿ìËÙ´ò¿ª³£ÓÃÎÄ¼ş
+" å¿«é€Ÿæ‰“å¼€å¸¸ç”¨æ–‡ä»¶
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>s :source $MYVIMRC<CR>
 
-" ±êÇ©¿ì½İ¼ü
+" æ ‡ç­¾å¿«æ·é”®
 nmap <C-t>   :tabnew<CR>
 nmap <C-p>   :tabprevious<CR>
 nmap <C-n>   :tabnext<CR>
 nmap <C-Tab> :tabnext<CR>
 
-" ´ò¿ª¹Ø±ÕNERDtree
+" æ‰“å¼€å…³é—­NERDtree
 map <leader>n :NERDTreeToggle<CR>
 map <leader>f :FufFile<CR>
 imap <F3> <ESC> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$','\~$']
 
-" ½¨Á¢ÈÕ¼ÇµÄÄ¿Â¼ºÍ¿ì½İ¼üÉè¶¨
+" å»ºç«‹æ—¥è®°çš„ç›®å½•å’Œå¿«æ·é”®è®¾å®š
 let g:calendar_diary="D:/keke/diary"
 map <F2> :CalendarH<CR>
 
-" ´úÂëÕÛµş
+" ä»£ç æŠ˜å 
 set foldmethod=marker
 
-" Ëõ½ø
+" ç¼©è¿›
 nmap <tab> v>
 nmap <s-tab> v<
 vmap <tab> >gv
 vmap <s-tab> <gv
 
-" ÈÃCommand ModeÒ²ÓĞBashµÄKey Binding
+" è®©Command Modeä¹Ÿæœ‰Bashçš„Key Binding
 cmap <c-a> <home>
 cmap <c-e> <end>
 cnoremap <c-b> <left>
@@ -120,35 +120,35 @@ let g:neocomplcache_enable_at_startup = 1
 let g:vimwiki_use_mouse = 1
 let g:vimwiki_list = [{"path": "D:/My Dropbox/vimwiki/", "path_html": "D:/My Dropbox/vimwiki/html/", "html_header": "D:/My Dropbox/vimwiki/template/header.tpl", "html_footer": "D:/My Dropbox/vimwiki/template/footer.tpl", "auto_export": 1}]
 
-" jQuery Óï·¨¸ßÁÁ
+" jQuery è¯­æ³•é«˜äº®
 au BufRead,BufNewFile *.js set syntax=jquery
 
-" CSS3 Óï·¨Ö§³Ö
+" CSS3 è¯­æ³•æ”¯æŒ
 au BufRead,BufNewFile *.css set ft=css syntax=css3
 
-" ÃüÁîĞĞÓÚ×´Ì¬ĞĞ
+" å‘½ä»¤è¡ŒäºçŠ¶æ€è¡Œ
 set ch=1
 set stl=\ [File]\ %F%m%r%h%y[%{&fileformat},%{&fileencoding}]\ %w\ \ [PWD]\ %r%{GetPWD()}%h\ %=\ [Line]%l/%L\ %=\[%P]
-set ls=2 " Ê¼ÖÕÏÔÊ¾×´Ì¬ĞĞ
-set wildmenu "ÃüÁîĞĞ²¹È«ÒÔÔöÇ¿Ä£Ê½ÔËĞĞ
+set ls=2 " å§‹ç»ˆæ˜¾ç¤ºçŠ¶æ€è¡Œ
+set wildmenu "å‘½ä»¤è¡Œè¡¥å…¨ä»¥å¢å¼ºæ¨¡å¼è¿è¡Œ
 
-" »ñÈ¡µ±Ç°Ä¿Â¼
+" è·å–å½“å‰ç›®å½•
 func! GetPWD()
     return substitute(getcwd(), "", "", "g")
 endf
-" ×Ô¶¯¸Ä±äµ±Ç°Ä¿Â¼
+" è‡ªåŠ¨æ”¹å˜å½“å‰ç›®å½•
 if has('netbeans_intg')
     set autochdir
 endif
 
-" ¸ñÊ½»¯CSS
+" æ ¼å¼åŒ–CSS
 " map <leader>.fcss :%s/;\([a-z\*\_]\)/;\r\1/g<cr>:%s/\(\w\){\([^\r]\)/\1\ {\r\2/g<cr>:%s/;}/;\r}/<cr>
 
-" È¥³ı½áÎ²¿Õ¸ñ
+" å»é™¤ç»“å°¾ç©ºæ ¼
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-" È¥µô½áÎ²^M
+" å»æ‰ç»“å°¾^M
 nnoremap <leader>E :%s/$//g<cr>:let @/=''<CR>
-" ÕÛµşHTML±êÇ©
+" æŠ˜å HTMLæ ‡ç­¾
 nnoremap <leader>ft Vatzf
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 " Wrap visual selection in an HTML tag.
